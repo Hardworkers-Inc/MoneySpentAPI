@@ -1,7 +1,5 @@
 package com.hardworkers.moneyspent.Transfer;
 
-import org.springframework.stereotype.Component;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -9,8 +7,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Component;
+
 @Component
-public class TransferValidator {
+public record TransferValidator(TransferRepository transferRepository) {
 
     private static final String PREFIX = "Transfer has validation errors: ";
 

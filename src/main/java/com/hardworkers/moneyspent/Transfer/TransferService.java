@@ -4,6 +4,7 @@ import com.hardworkers.moneyspent.BaseCrudService;
 import com.hardworkers.moneyspent.exceptions.EntityNotFoundException;
 import com.hardworkers.moneyspent.exceptions.EntityValidationFailedException;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,7 +16,7 @@ public class TransferService implements BaseCrudService<Transfer> {
 
     @Override
     public Iterable<Transfer> getAll() {
-        return transferRepository.findAll();
+        return transferRepository.findAll(Sort.by(Sort.Direction.DESC, "dateTime"));
     }
 
     @Override
